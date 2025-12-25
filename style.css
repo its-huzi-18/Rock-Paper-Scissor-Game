@@ -1,70 +1,297 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     text-align: center;
 }
-body{
-    background-color:lightcyan;
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
 }
-.compText{
-    color: red;
-    font-weight: 550;
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
-.userText{
-    font-weight: 550;
-    color:darkgreen;
-}
-h1{
-    background-color: #081b31;
+
+h1 {
+    background-color: rgba(8, 27, 49, 0.9);
     color: white;
     height: 5rem;
     line-height: 5rem;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-.choice{
-    height: 165px;
-    width: 165px;
-    border-radius:50%;
+
+.selections {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.selection-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    min-width: 200px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.selection-container h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.selection-display {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
 }
-.choice:hover{
-    background-color: #081b31;
-    cursor: pointer;
+
+.selection-display img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.choices{
-    height: 45vh;
+
+.selection-text {
+    font-size: 0.9rem;
+    color: #ccc;
+    padding: 10px;
+}
+
+.selection-thinking {
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.vs-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    min-width: 50px;
+}
+
+.choices {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
+    margin: 30px 0;
+    flex-wrap: wrap;
 }
-img{
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
 
-}
-.score-board{
+.choice {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    gap: 5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-#user-score, #comp-score{
- font-size: 4rem;
+.choice:hover {
+    background: rgba(8, 27, 49, 0.8);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
-#msg{
-    background-color: #081b31;
+
+.choice.selected {
+    border: 4px solid #4CAF50;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.choice:hover img {
+    transform: scale(1.1);
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 3rem;
+    margin: 20px 0;
+}
+
+.score {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 15px 25px;
+    min-width: 120px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.userText {
+    font-weight: 600;
+    color: #4CAF50;
+    margin-top: 5px;
+}
+
+.compText {
+    font-weight: 600;
+    color: #F44336;
+    margin-top: 5px;
+}
+
+#user-score, #comp-score {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#msg {
+    background: rgba(8, 27, 49, 0.9);
     color: white;
-    font-size: 1.9rem;
-    margin-top: 4rem;
-    display: inline-flex;
-    padding: 1rem;
-    border-radius: 1rem;
+    font-size: 1.5rem;
+    margin: 20px auto;
+    padding: 15px 30px;
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 80%;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.msg-container {
+    margin: 20px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        height: 4rem;
+        line-height: 4rem;
+    }
+
+    .selections {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .choices {
+        gap: 1rem;
+    }
+
+    .choice {
+        height: 100px;
+        width: 100px;
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .score-board {
+        gap: 1.5rem;
+    }
+
+    .score {
+        padding: 10px 20px;
+        min-width: 100px;
+    }
+
+    #user-score, #comp-score {
+        font-size: 2rem;
+    }
+
+    #msg {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+
+    .selection-display {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+        height: 3.5rem;
+        line-height: 3.5rem;
+    }
+
+    .choice {
+        height: 80px;
+        width: 80px;
+    }
+
+    img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .selection-display {
+        width: 80px;
+        height: 80px;
+    }
+
+    .vs-text {
+        font-size: 1.5rem;
+    }
+
+    .score {
+        padding: 8px 15px;
+        min-width: 80px;
+    }
+
+    #user-score, #comp-score {
+        font-size: 1.8rem;
+    }
 }

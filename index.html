@@ -9,20 +9,37 @@
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
+    <div class="selections">
+        <div class="selection-container player-selection">
+            <h3>You Selected</h3>
+            <div class="selection-display" id="player-selection-display">
+                <p class="selection-text">Waiting for your move</p>
+            </div>
+        </div>
+        <div class="vs-text">VS</div>
+        <div class="selection-container computer-selection">
+            <h3>Computer Selected</h3>
+            <div class="selection-display" id="computer-selection-display">
+                <p class="selection-text">Waiting for computer</p>
+            </div>
+        </div>
+    </div>
+
     <div class="choices">
-        <div class="choice" id="rock"><img src="Images/rock.png" alt=""></div>
-        <div class="choice" id="paper"><img src="Images/paper.png" alt=""></div>
-        <div class="choice" id="scissor"><img src="Images/scissors.png" alt=""></div>
+        <div class="choice" id="rock"><img src="Images/rock.png" alt="Rock"></div>
+        <div class="choice" id="paper"><img src="Images/paper.png" alt="Paper"></div>
+        <div class="choice" id="scissor"><img src="Images/scissors.png" alt="Scissors"></div>
     </div>
+
     <div class="score-board">
-    <div class="score">
-        <p id="user-score">0</p>
-        <p class="userText">You</p>
-    </div>
-    <div class="score">
-        <p id="comp-score">0</p>
-        <p class="compText">Comp</p>
-    </div>
+        <div class="score">
+            <p id="user-score">0</p>
+            <p class="userText">You</p>
+        </div>
+        <div class="score">
+            <p id="comp-score">0</p>
+            <p class="compText">Computer</p>
+        </div>
     </div>
     <div class="msg-container">
         <p id="msg">Play your Move</p>
